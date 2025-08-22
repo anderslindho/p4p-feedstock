@@ -15,9 +15,8 @@ source:
 
 build:
   skip: True  # [win]
-  number: 2
-  entry_points:
-    - pvagw = p4p.gw:main
+  number: 3
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
@@ -32,10 +31,13 @@ requirements:
     - numpy                                  # [build_platform != target_platform]
   host:
     - python
+    - pip
     - setuptools
+    - setuptools_dso
     - cython
     - numpy
     - ply
+    - epics-base
     - pvxs
   run:
     - python
